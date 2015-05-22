@@ -7,9 +7,14 @@ gem 'spring', :group => :development
 gem 'sqlite3'
 gem 'paperclip', '~> 4.2'
 gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'devise_token_auth'
 
-gem 'rspec-rails', :group => :test
+group :test do
+	gem 'rspec-rails'
+	gem "factory_girl_rails", "~> 4.0"
+end
+
 
 
 
