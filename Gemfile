@@ -5,7 +5,9 @@ gem 'rails', '4.1.8'
 gem 'rails-api'
 gem 'spring', :group => :development
 gem 'sqlite3'
-gem "paperclip", "~> 4.2"
+gem 'paperclip', '~> 4.2'
+gem 'omniauth'
+gem 'devise_token_auth'
 
 gem 'rspec-rails', :group => :test
 

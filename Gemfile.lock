@@ -28,19 +28,35 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.10)
     builder (3.2.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
+    devise (3.4.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
+    devise_token_auth (0.1.30)
+      devise (~> 3.3)
+      rails (~> 4.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    hashie (3.3.2)
     i18n (0.7.0)
     json (1.8.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.5)
     minitest (5.6.1)
+    omniauth (1.2.2)
+      hashie (>= 1.2, < 4)
+      rack (~> 1.0)
+    orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -68,6 +84,8 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
+    responders (1.1.2)
+      railties (>= 3.2, < 4.2)
     rspec-core (3.2.0)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.0)
@@ -97,11 +115,15 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  devise_token_auth
+  omniauth
   paperclip (~> 4.2)
   rails (= 4.1.8)
   rails-api
