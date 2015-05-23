@@ -56,7 +56,7 @@ module Api
         end
 
         def business_params
-          params.require(:business).permit(:name)
+          params.require(:business).permit(:name,:logo,:user_id)
         end
     end
   end
