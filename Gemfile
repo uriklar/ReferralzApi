@@ -9,6 +9,7 @@ gem 'paperclip', '~> 4.2'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'devise_token_auth'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :test do
 	gem 'rspec-rails'
