@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :businesses, except: [:new, :edit]
       resources :categories, only: [:show,:index]
+      resources :links, only: [:create]
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523135001) do
+ActiveRecord::Schema.define(version: 20150523150634) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20150523135001) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "links", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "links", ["followed_id"], name: "index_links_on_followed_id"
+  add_index "links", ["follower_id", "followed_id"], name: "index_links_on_follower_id_and_followed_id", unique: true
+  add_index "links", ["follower_id"], name: "index_links_on_follower_id"
 
   create_table "users", force: true do |t|
     t.string   "provider",                            null: false

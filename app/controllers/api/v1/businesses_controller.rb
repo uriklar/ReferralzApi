@@ -1,7 +1,7 @@
 module Api
   module V1
     class BusinessesController < ApplicationController
-      before_action :set_business, only: [:show, :update, :destroy]
+      before_action :set_business, only: [:update, :destroy]
 
       # GET /businesses
       # GET /businesses.json
@@ -14,7 +14,8 @@ module Api
       # GET /businesses/1
       # GET /businesses/1.json
       def show
-        render json: @business
+        @business = Business.includes(:businesses_in_network).find(params[:id])
+        render json: @business.to_json(:include => :businesses_in_network)
       end
 
       # POST /businesses
