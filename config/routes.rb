@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :businesses, except: [:new, :edit]
       resources :categories, only: [:show,:index]
       resources :links, only: [:create]
+      resources :invitations, only: [:create]
     end
   end
 
