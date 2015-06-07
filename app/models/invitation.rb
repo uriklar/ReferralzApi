@@ -3,7 +3,7 @@ class Invitation < ActiveRecord::Base
 	has_one :recipient, :class_name => 'User'
 
 	validates_presence_of :recipient_phone
-	validates_uniqueness_of :recipient_id, :scope => :sender_id
+	validates_uniqueness_of :recipient_phone, :scope => :sender_id
 	validate :recipient_is_not_registered
 
 	before_create :generate_token

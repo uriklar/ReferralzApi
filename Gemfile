@@ -3,19 +3,24 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.8'
 gem 'rails-api'
-gem 'spring', :group => :development
 gem 'sqlite3'
 gem 'paperclip', '~> 4.2'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'devise_token_auth'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'forgery'
 
 group :test do
 	gem 'rspec-rails'
 	gem "factory_girl_rails", "~> 4.0"
 end
-gem 'forgery'
+
+group :development do
+	gem 'spring'
+	gem 'byebug'
+end
+
 
 
 

@@ -14,8 +14,8 @@ module Api
       # GET /businesses/1
       # GET /businesses/1.json
       def show
-        @business = Business.includes(:businesses_in_network).find(params[:id])
-        render json: @business.to_json(:include => :businesses_in_network)
+        @business = Business.find(params[:id])
+        render json: @business.to_json(:include => [:links, :businesses_in_network])
       end
 
       # POST /businesses
