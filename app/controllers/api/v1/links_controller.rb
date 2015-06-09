@@ -2,12 +2,15 @@ module Api
   module V1
 		class LinksController < ApplicationController
 			def create
-		    follower = Business.includes(:businesses_in_network).find(params[:follower_id])
-		    Rails.logger.info follower.businesses_in_network.map { |e| e.name }
-		    followed = Business.find(params[:followed_id])
-		    follower.toggle_follow(followed)
-		    Rails.logger.info follower.businesses_in_network.map { |e| e.name }
-		    render json: follower.to_json(:include => :businesses_in_network)
+		    follower = Business.find(params[:follower_id])
+		    follower.follow(params[:followed_id])
+		    render json: follower.to_json(:include => [:links,:businesses_in_network])
+		  end
+
+		  def destroy
+		  	link = Link.find(params[:id])
+		  	link.follower.unfollow(link.followed.id)
+		    render json: link.follower.to_json(:include => [:links,:businesses_in_network])
 		  end
 		end
 	end

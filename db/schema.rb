@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523150634) do
+ActiveRecord::Schema.define(version: 20150602211010) do
 
   create_table "businesses", force: true do |t|
     t.string   "name"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20150523150634) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "invitations", force: true do |t|
+    t.integer  "sender_id"
+    t.string   "recipient_phone"
+    t.string   "token"
+    t.datetime "sent_at"
+    t.string   "new"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "recipient_id"
   end
 
   create_table "links", force: true do |t|
@@ -65,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150523150634) do
     t.text     "tokens"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "invitation_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"
