@@ -35,10 +35,11 @@ module ReferralzApi
     config.middleware.use Rack::Cors do
         allow do
             origins '*'
-            resource '*', 
-            :headers => :any, 
-            :methods => [ :get, :post, :options, :delete],
-            :expose  => ['access-token', 'uid', 'client']
+            resource '*',
+              :headers => :any,
+              :methods => [:get, :post, :delete, :put, :options, :head],
+              :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+              :max_age => 0
         end
     end
   end
